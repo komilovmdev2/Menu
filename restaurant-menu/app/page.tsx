@@ -60,7 +60,7 @@ export default function RestaurantMenu() {
         setLoading(true);
         setError(null);
 
-        const categoriesResponse = await fetch("https://api.riverr.uz/api/menu-categories/");
+        const categoriesResponse = await fetch("https://api.hayat.controlagent.uz/api/menu-categories/");
         if (!categoriesResponse.ok) throw new Error("Не удалось загрузить категории");
         const categoriesData = await categoriesResponse.json();
         const categoriesFormatted = categoriesData.map((cat) => ({ id: cat.id, name: cat.name }));
@@ -87,7 +87,7 @@ export default function RestaurantMenu() {
         setLoading(true);
         setError(null);
 
-        const itemsResponse = await fetch(`https://api.riverr.uz/api/menu-items/?category=${activeCategory}`);
+        const itemsResponse = await fetch(`https://api.hayat.controlagent.uz/api/menu-items/?category=${activeCategory}`);
         if (!itemsResponse.ok) throw new Error("Не удалось загрузить товары");
         const itemsData = await itemsResponse.json();
         const groupedItems = itemsData.reduce((acc, item) => {
